@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "inquirer": "^6.2.0",
-    "inquirer-datepicker-prompt": "^0.4.2"
+    "inquirer-datepicker-prompt": "^0.4.2",
+    "moment": "^2.22.2"
   }
 }
