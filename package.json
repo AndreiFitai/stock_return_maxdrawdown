@@ -1,0 +1,24 @@
+{
+  "name": "stock_return_maxdrawdown",
+  "version": "1.0.0",
+  "description": "Gets stock data and displays rate of return and maximum drawdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreiFitai/stock_return_maxdrawdown.git"
+  },
+  "author": "Andrei Fitai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreiFitai/stock_return_maxdrawdown/issues"
+  },
+  "homepage": "https://github.com/AndreiFitai/stock_return_maxdrawdown#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "inquirer": "^6.2.0",
+    "inquirer-datepicker-prompt": "^0.4.2"
+  }
+}
