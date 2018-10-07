@@ -8,6 +8,9 @@ function formatStocksPrices(arr) {
     result.push(`${moment(el[0]).format("DD.MM.YY")}: Closed at ${el[4].toFixed(2)} (${el[3].toFixed(2)} ~ ${el[2].toFixed(2)})`)
   })
 
+  result.push('\n')
+  result.unshift('\n')
+
   return result.reverse().join(`\n`)
 }
 
