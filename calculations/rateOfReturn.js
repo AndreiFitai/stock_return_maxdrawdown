@@ -5,11 +5,13 @@ const testArr = [
   ['2018-01-02', 172.26]
 ]
 
+// open max min close
+
 function calcRateOfReturn(arr) {
-  let rateOfReturn = arr[0][1] - arr[arr.length - 1][1]
-  let percentRoR = Math.round((((arr[0][1] - arr[arr.length - 1][1]) / arr[arr.length - 1][1]) * 100) * 10) / 10
+  let rateOfReturn = arr[0][4] - arr[arr.length - 1][4]
+  let percentRoR = Math.round((((arr[0][4] - arr[arr.length - 1][4]) / arr[arr.length - 1][4]) * 100) * 10) / 10
   console.log(
-    `Return: ${rateOfReturn} [${percentRoR}%] (${arr[arr.length-1][1]} on ${arr[arr.length-1][0]} -> ${arr[0][1]} on ${arr[0][0]})`
+    `Return: ${rateOfReturn} [${percentRoR}%] (${arr[arr.length-1][4]} on ${arr[arr.length-1][0]} -> ${arr[0][4]} on ${arr[0][0]})`
   )
 }
 
