@@ -59,9 +59,13 @@ inquirer.prompt(questions).then(answers => {
 
   axios.get(`https://www.quandl.com/api/v3/datasets/WIKI/${answers.stock}.json?start_date=${starting_date}&end_date=${end_date}&api_key=${api}`).then(result => {
     const dataArr = result.data.dataset.data
-    formatStocksPrices(dataArr)
-    calcRateOfReturn(dataArr)
-    calcMaxDrawdown(dataArr)
+    //prep message for display and push to other channels
+    let message = []
+    message.push(formatStocksPrices(dataArr))
+    message.push(calcRateOfReturn(dataArr))
+    message.push(calcMaxDrawdown(dataArr))
+    message = message.join(`\n`)
+    console.log(message)
   })
 
 });
