@@ -1,3 +1,4 @@
 module.exports = {
-  QUANDL_API: ""
+  QUANDL_API: "",
+  SLACK_WEBHOOK: ""
 };

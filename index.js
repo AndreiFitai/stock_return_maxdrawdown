@@ -6,6 +6,7 @@ const moment = require('moment')
 const calcRateOfReturn = require('./calculations/rateOfReturn')
 const calcMaxDrawdown = require('./calculations/maxDrawdown')
 const formatStocksPrices = require('./calculations/formatStockPrices')
+const sendSlackMsg = require('./utils/slackNotification.js')
 
 //sets up prompts for user
 const questions = [{
@@ -22,13 +23,13 @@ const questions = [{
   },
   {
     type: 'datetime',
-    name: 'starting_date',
+    name: 'startingDate',
     message: "Start date (mm/dd/yyyy):",
     format: ['mm', '/', 'dd', '/', 'yyyy']
   },
   {
     type: 'datetime',
-    name: 'end_date',
+    name: 'endDate',
     message: "End date (mm/dd/yyyy):",
     format: ['mm', '/', 'dd', '/', 'yyyy']
   },
@@ -51,21 +52,26 @@ if (!config.QUANDL_API) {
 }
 
 inquirer.prompt(questions).then(answers => {
+
   //formating input to prep for api call
-  starting_date = moment(answers.starting_date).format("YYYY-MM-DD")
-  end_date = moment(answers.end_date).format("YYYY-MM-DD")
+  startingDate = moment(answers.startingDate).format("YYYY-MM-DD")
+  endDate = moment(answers.endDate).format("YYYY-MM-DD")
+
   //if config does not contain API, gets the key from user answers
   api = config.QUANDL_API ? config.QUANDL_API : answers.API
 
-  axios.get(`https://www.quandl.com/api/v3/datasets/WIKI/${answers.stock}.json?start_date=${starting_date}&end_date=${end_date}&api_key=${api}`).then(result => {
+  axios.get(`https://www.quandl.com/api/v3/datasets/WIKI/${answers.stock}.json?start_date=${startingDate}&end_date=${endDate}&api_key=${api}`).then(result => {
     const dataArr = result.data.dataset.data
-    //prep message for display and push to other channels
+    //prep message for display
     let message = []
+    message.push()
     message.push(formatStocksPrices(dataArr))
     message.push(calcRateOfReturn(dataArr))
     message.push(calcMaxDrawdown(dataArr))
     message = message.join(`\n`)
     console.log(message)
+    sendSlackMsg(answers.stock, startingDate, endDate, message)
+
   })
 
 });
