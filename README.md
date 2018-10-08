@@ -1,5 +1,7 @@
 # Stock Rate of Return and Max Drawdown
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/a8a2a7f1a4fb1f6756aa/maintainability)](https://codeclimate.com/github/AndreiFitai/stock_return_maxdrawdown/maintainability)
+
 This app uses Quandl API to analyze and print EOD stock prices, rate of return based on the selected time frame as well as maximum drawdown
 
 ## Project setup
@@ -11,7 +13,7 @@ Requirements:
 <!-- prettier-ignore -->
 ### Setup:
 
-run `$ npm init`
+run `$ npm install`
 
 ### Add API keys
 
