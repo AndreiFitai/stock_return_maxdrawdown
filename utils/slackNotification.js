@@ -1,5 +1,6 @@
 const SlackWebhook = require('slack-webhook')
 const config = require('../config')
+const file = require('../stocks')
 
 //If slack webhook is present in config initializes slack bot service and sends message
 

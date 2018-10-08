@@ -1,6 +1,12 @@
 const axios = require('axios')
+const moment = require('moment')
 
 function quandlAPICall(stock, startingDate, endDate, api) {
+
+  //format dates for api call
+  startingDate = moment(startingDate).format("YYYY-MM-DD")
+  endDate = moment(endDate).format("YYYY-MM-DD")
+
   return axios.get(`https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=${startingDate}&end_date=${endDate}&api_key=${api}`).then(result => {
     if (result.data.dataset.data.length == 0) {
 
