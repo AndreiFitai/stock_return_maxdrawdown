@@ -7,6 +7,7 @@ const calcRateOfReturn = require('./calculations/rateOfReturn')
 const calcMaxDrawdown = require('./calculations/maxDrawdown')
 const formatStocksPrices = require('./calculations/formatStockPrices')
 const sendSlackMsg = require('./utils/slackNotification.js')
+const quandlAPICall = require('./utils/quandl')
 
 //sets up prompts for user
 const questions = [{
@@ -36,11 +37,11 @@ const questions = [{
 ];
 
 //if config does not contain API, adds API prompt for user
-if (!config.QUANDL_API) {
+if (!config.STOCK_API) {
   questions.unshift({
     type: 'input',
     name: 'API',
-    message: "Please type your Quandl API key:",
+    message: "Please type your Stock API Service key:",
     validate: function (value) {
       if (value) {
         return true;
@@ -58,20 +59,19 @@ inquirer.prompt(questions).then(answers => {
   endDate = moment(answers.endDate).format("YYYY-MM-DD")
 
   //if config does not contain API, gets the key from user answers
-  api = config.QUANDL_API ? config.QUANDL_API : answers.API
+  api = config.STOCK_API ? config.STOCK_API : answers.API
 
-  axios.get(`https://www.quandl.com/api/v3/datasets/WIKI/${answers.stock}.json?start_date=${startingDate}&end_date=${endDate}&api_key=${api}`).then(result => {
-    const dataArr = result.data.dataset.data
-    //prep message for display
-    let message = []
-    message.push()
-    message.push(formatStocksPrices(dataArr))
-    message.push(calcRateOfReturn(dataArr))
-    message.push(calcMaxDrawdown(dataArr))
-    message = message.join(`\n`)
-    console.log(message)
-    sendSlackMsg(answers.stock, startingDate, endDate, message)
-
+  //call specified API with necesary details then formats and prints data
+  quandlAPICall(answers.stock, startingDate, endDate, api).then(dataArray => {
+    if (dataArray) {
+      let message = []
+      message.push()
+      message.push(formatStocksPrices(dataArray))
+      message.push(calcMaxDrawdown(dataArray))
+      message.push(calcRateOfReturn(dataArray))
+      sendSlackMsg(answers.stock, startingDate, endDate, message)
+      message = message.join(`\n`)
+      console.log(message)
+    }
   })
-
-});
+})
