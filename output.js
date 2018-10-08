@@ -12,6 +12,7 @@ function sendOutput(dataArray, stock, start, end) {
     message.push(calcMaxDrawdown(dataArray))
     message.push(calcRateOfReturn(dataArray))
     console.log(message.join(`\n`))
+    //Call other notification services
     sendSlackMsg(stock, start, end, message)
   }
 }

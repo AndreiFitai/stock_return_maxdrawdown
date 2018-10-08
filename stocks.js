@@ -8,15 +8,15 @@ const quandlAPICall = require('./utils/quandl')
 
 
 inquirer.prompt(questions).then(answers => {
+
   const {
     stock,
     startingDate,
     endDate
   } = answers
-  //if config does not contain API, gets the key from user answers
+
   api = config.STOCK_API ? config.STOCK_API : answers.API
 
-  //call specified API with necesary details then formats and prints data
   quandlAPICall(stock, startingDate, endDate, api).then(dataArray => {
     sendOutput(dataArray, stock, startingDate, endDate)
   })
