@@ -38,5 +38,3 @@ function calcMaxDrawdown(dataArray) {
 }
 
 module.exports = calcMaxDrawdown
-
-//`-${mdd}% (${day.high.toFixed(2)} on ${dateFormated} -> ${day.low.toFixed(2)} on ${dateFormated})`
