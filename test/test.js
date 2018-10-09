@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const rateOfReturn = require("../calculations/rateOfReturn");
 
 describe("rateOfReturn()", function() {
-  it("Should return calculated RoR in a formated string", function() {
+  it("Should return calculated RoR", function() {
     var testData = [
       [
         "2018-01-08",
@@ -50,8 +50,8 @@ describe("rateOfReturn()", function() {
         22211345
       ]
     ];
-    expect(rateOfReturn(testData)).to.equal({
-      rateofReturn: 1.3199999999999932,
+    expect(rateOfReturn(testData)).to.eql({
+      rateOfReturn: 1.3199999999999932,
       percentRoR: 0.8
     });
   });
