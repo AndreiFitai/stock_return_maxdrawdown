@@ -1,6 +1,6 @@
 const moment = require('moment')
 
-function calcMaxDrawdown(arr) {
+function calcMaxDrawdown(dataArray) {
   let result = ['First 3 Drawdowns: ']
 
   let maxMDD = {
@@ -8,7 +8,7 @@ function calcMaxDrawdown(arr) {
     message: ""
   }
 
-  arr.forEach((el, index) => {
+  dataArray.forEach((el, index) => {
 
     let mdd = Math.round((((el[2] - el[3]) / el[2]) * 100) * 10) / 10
 
