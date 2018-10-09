@@ -50,8 +50,9 @@ describe("rateOfReturn()", function() {
         22211345
       ]
     ];
-    expect(rateOfReturn(testData)).to.equal(
-      "Return: 1.3199999999999932 [0.8%] (173.03 on 04.01.18 -> 174.35 on 08.01.18)"
-    );
+    expect(rateOfReturn(testData)).to.equal({
+      rateofReturn: 1.3199999999999932,
+      percentRoR: 0.8
+    });
   });
 });
