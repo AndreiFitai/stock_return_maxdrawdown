@@ -1,10 +1,10 @@
 const moment = require("moment");
 
-function calcRateOfReturn(arr) {
-  const rateOfReturn = arr[0][4] - arr[arr.length - 1][4];
+function calcRateOfReturn(dataArray) {
+  const rateOfReturn = dataArray[0].close - dataArray[dataArray.length - 1].close;
 
   const percentRoR =
-    Math.round((rateOfReturn / arr[arr.length - 1][4]) * 100 * 10) / 10;
+    Math.round((rateOfReturn / dataArray[dataArray.length - 1].close) * 100 * 10) / 10;
 
   return {
     rateOfReturn,

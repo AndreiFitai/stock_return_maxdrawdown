@@ -27,7 +27,6 @@ function quandlAPICall(stock, startingDate, endDate, api) {
             close: el[4]
           }
         })
-        console.log(resultData)
         return resultData
       }
     }).catch(error => {

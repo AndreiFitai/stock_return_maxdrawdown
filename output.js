@@ -8,7 +8,7 @@ function sendOutput(dataArray, stock, startDate, endDate) {
   if (dataArray) {
     let message = []
     message.push()
-    message.push(formatStocksPrices(dataArray))
+    // message.push(formatStocksPrices(dataArray))
     message.push(calcMaxDrawdown(dataArray))
 
     let rateOfReturnData = calcRateOfReturn(dataArray)
