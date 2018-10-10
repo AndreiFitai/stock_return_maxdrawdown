@@ -59,3 +59,7 @@ Run `$ npm test`
 ## TODO
 
 - [ ] Fix charts scaling for Slack Notification
+- [ ] Fix charts for bigger time periods
+- [ ] Alternative notification channel
+- [ ] Add more tests
+- [ ] Add alternative API for more up-to-date data
