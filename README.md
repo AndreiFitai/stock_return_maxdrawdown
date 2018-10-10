@@ -19,6 +19,7 @@ run `$ npm install`
 ### Add API keys
 
 Necesary API key for the selected service, by default [Quandl](https://www.quandl.com),can be added in the `config.js file`.
+
 Optionally a [Webhook for your Slack channel](https://api.slack.com/incoming-webhooks) can be added to enable notifications
 
 ## Usage

@@ -26,13 +26,12 @@ function sendSlackMsg(stock, start, end, message, dataArray) {
         chartData.dates.push(element.date)
         chartData.closingPrices.push(element.close)
       });
-      message = [
-        `Stock: *${stock}*. Analysis done for the period of *${start}* to *${end}*`,
-        ...message
-      ].join("\n");
 
       message = {
-        text: message,
+        text: [
+          `Stock: *${stock}*. Analysis done for the period of *${start}* to *${end}*`,
+          ...message
+        ].join("\n"),
         attachments: [{
           pretext: "Closing prices for the selected period of time",
           image_url: `https://image-charts.com/chart?cht=bvs&chs=900x400&chd=t:${chartData.closingPrices.reverse().join(',')}&chds=a&chxt=x,y&chxl=100:|${chartData.dates.reverse().join('|')}&chm=B,FCECF4`
