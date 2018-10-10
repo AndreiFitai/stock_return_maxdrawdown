@@ -3,7 +3,7 @@ const config = require("../config");
 
 //If slack webhook is present in config initializes slack bot service and sends message
 
-let slack;
+const slack;
 if (config.SLACK_WEBHOOK) {
   slack = new SlackWebhook(config.SLACK_WEBHOOK);
 }
