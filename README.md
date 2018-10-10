@@ -25,6 +25,7 @@ Optionally a [Webhook for your Slack channel](https://api.slack.com/incoming-web
 ## Usage
 
 Run `$ node stocks`
+
 User will be prompted for API key (if missing), stock and timeframe.
 
 eg:
