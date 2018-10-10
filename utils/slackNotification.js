@@ -14,13 +14,8 @@ function sendSlackMsg(stock, start, end, message, dataArray) {
     if (dataArray.length > 10) {
 
       message = message.slice(message.indexOf("First 3 Drawdowns:") - 1);
-      const chartDataDates = []
-      const chartDataPrices = []
-
-      dataArray.forEach((element, index) => {
-        chartDataDates.push(element.date);
-        chartDataPrices.push(element.close);
-      });
+      const chartDates = dataArray.map(element => element.date).reverse().join("|")
+      const chartPrices = dataArray.map(element => element.close).reverse().join(",")
 
       message = {
         text: [
@@ -29,7 +24,7 @@ function sendSlackMsg(stock, start, end, message, dataArray) {
         ].join("\n"),
         attachments: [{
           pretext: "Closing prices for the selected period of time",
-          image_url: `https://image-charts.com/chart?cht=bvs&chs=900x400&chd=t:${chartDataPrices.reverse().join(",")}&chds=a&chxt=x,y&chxl=100:|${chartDataDates.reverse().join("|")}&chm=B,FCECF4`
+          image_url: `https://image-charts.com/chart?cht=bvs&chs=900x400&chd=t:${chartPrices}&chds=a&chxt=x,y&chxl=100:|${chartDates}&chm=B,FCECF4`
         }]
       };
     } else {
