@@ -51,3 +51,11 @@ First 3 Drawdowns:
 Maximum drawdown: -1.8% (172.3 on 02.01.18 -> 169.26 on 02.01.18)
 Return: 2.740000000000009 [1.6%] (172.26 on 01 Jan 2018 -> 175 on 05 Jan 2018)
 ```
+
+## Testing
+
+Run `$ npm test`
+
+## TODO
+
+- [ ] Fix charts scaling for Slack Notification
