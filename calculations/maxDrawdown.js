@@ -3,12 +3,7 @@ const moment = require('moment')
 function calcMaxDrawdown(dataArray) {
   let newData = [...dataArray]
   newData.reverse()
-  let result = {
-    firstThree: [],
-    max: {
-      mdd: 0
-    }
-  }
+  let result = { firstThree: [], max: { mdd: 0 } }
 
   newData.forEach((day, index) => {
 
@@ -17,12 +12,7 @@ function calcMaxDrawdown(dataArray) {
     const date = moment(day.date).format('DD.MM.YY')
 
     if (index < 3) {
-      result.firstThree.push({
-        mdd: calculated,
-        date,
-        high: day.high,
-        low: day.low
-      })
+      result.firstThree.push({ mdd: calculated, date, high: day.high, low: day.low })
     }
 
     if (calculated > result.max.mdd) {
