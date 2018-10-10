@@ -9,6 +9,7 @@ This app uses Quandl API to analyze and print EOD stock prices, rate of return b
 Requirements:
 
 - Node.js 8.12
+- NPM
 
 <!-- prettier-ignore -->
 ### Setup:
@@ -31,21 +32,21 @@ eg:
 $ node stocks
 ? Provide stock symbol:  AAPL
 ? Start date (mm/dd/yyyy): 01/01/2018
-? End date (mm/dd/yyyy): 01/08/2018
+? End date (mm/dd/yyyy): 01/05/2018
 
 
-02.01.18: Closed at 172.26 (169.26 ~ 172.30)
-03.01.18: Closed at 172.23 (171.96 ~ 174.55)
+05.01.18: Closed at 175 (173.05 ~ 175.37)
 04.01.18: Closed at 173.03 (172.08 ~ 173.47)
-05.01.18: Closed at 175.00 (173.05 ~ 175.37)
-08.01.18: Closed at 174.35 (173.93 ~ 175.61)
+03.01.18: Closed at 172.23 (171.96 ~ 174.55)
+02.01.18: Closed at 172.26 (169.26 ~ 172.3)
 
 
 First 3 Drawdowns:
--1% (175.61 on 08.01.18 -> 173.93 on 08.01.18)
--1.3% (175.37 on 05.01.18 -> 173.05 on 05.01.18)
+-1.8% (172.3 on 02.01.18 -> 169.26 on 02.01.18)
+-1.5% (174.55 on 03.01.18 -> 171.96 on 03.01.18)
 -0.8% (173.47 on 04.01.18 -> 172.08 on 04.01.18)
 
-Maximum drawdown: -1.8% (172.30 on 02.01.18 -> 169.26 on 02.01.18)
-Return: 2.0900000000000034 [1.2%] (172.26 on 02.01.18 -> 174.35 on 08.01.18)
+
+Maximum drawdown: -1.8% (172.3 on 02.01.18 -> 169.26 on 02.01.18)
+Return: 2.740000000000009 [1.6%] (172.26 on 01 Jan 2018 -> 175 on 05 Jan 2018)
 ```

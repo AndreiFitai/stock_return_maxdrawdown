@@ -1,5 +1,3 @@
-const moment = require("moment");
-
 function calcRateOfReturn(dataArray) {
   const rateOfReturn = dataArray[0].close - dataArray[dataArray.length - 1].close;
 
