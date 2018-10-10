@@ -12,11 +12,11 @@ function sendSlackMsg(stock, start, end, message, dataArray) {
   if (config.SLACK_WEBHOOK) {
     // if selected period is bigger than 10 days, removes stock prices and replaces them with a chart for a better view
     if (dataArray.length > 10) {
-      //removes
+
       message = message.slice(message.indexOf("First 3 Drawdowns:") - 1);
       const chartDataDates = []
       const chartDataPrices = []
-      //cleans up data for chart use
+
       dataArray.forEach((element, index) => {
         chartDataDates.push(element.date);
         chartDataPrices.push(element.close);
