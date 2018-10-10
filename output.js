@@ -27,7 +27,7 @@ function sendOutput(dataArray, stock, startDate, endDate) {
     console.log(message.join(`\n`))
 
     //Call other notification services
-    sendSlackMsg(stock, startDate, endDate, message)
+    sendSlackMsg(stock, startDate, endDate, message, dataArray)
   }
 }
 
