@@ -1,4 +1,3 @@
-const moment = require("moment");
 const { rateOfReturnMsg } = require("./calculations/rateOfReturn");
 const { maxDrawdownMsg } = require("./calculations/maxDrawdown");
 const closingsMsg = require("./calculations/closings");
