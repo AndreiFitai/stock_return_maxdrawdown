@@ -36,5 +36,3 @@ function sendSlackMsg(stock, start, end, message, dataArray) {
 }
 
 module.exports = sendSlackMsg;
-
-//optional chart create and attach to message if period of time selected > 30 days
