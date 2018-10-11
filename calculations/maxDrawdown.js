@@ -3,9 +3,10 @@ const moment = require('moment')
 function maxDrawdownMsg(dataArray) {
     const data = calcMaxDrawdown(dataArray)
     return ['First 3 Drawdowns:',
-        ...data.firstThree.map(element => { return `-${element.mdd}% (${element.high} on ${element.date} -> ${element.low} on ${element.date})` }),
+        ...data.firstThree.map(day => `-${day.mdd}% (${day.high} on ${day.date} -> ${day.low} on ${day.date})`),
         '',
-        `Maximum drawdown: -${data.max.mdd}% (${data.max.high} on ${data.max.date} -> ${data.max.low} on ${data.max.date})`].join('\n')
+        `Maximum drawdown: -${data.max.mdd}% (${data.max.high} on ${data.max.date} -> ${data.max.low} on ${data.max.date})`]
+        .join('\n')
 }
 
 
