@@ -6,9 +6,6 @@ const sendSlackMsg = require('./utils/slackNotification')
 function sendOutput(dataArray, stock, startDate, endDate) {
   if (dataArray) {
 
-    startDate = moment(startDate).format("DD MMM YYYY")
-    endDate = moment(endDate).format("DD MMM YYYY")
-
     const message = ['',
       ...dataArray.map(day => { return `${moment(day.date).format("DD.MM.YY")}: Closed at ${day.close} (${day.low} ~ ${day.high})` }),
       '',
