@@ -1,3 +1,8 @@
+function rateOfReturnMsg(dataArray) {
+  const data = calcRateOfReturn(dataArray)
+  return `Return: ${data.rateOfReturn} [${data.percentRoR}%] (${dataArray[dataArray.length - 1].close} on ${dataArray[dataArray.length - 1].date} -> ${dataArray[0].close} on ${dataArray[0].date})`
+}
+
 function calcRateOfReturn(dataArray) {
   const rateOfReturn = dataArray[0].close - dataArray[dataArray.length - 1].close;
 
@@ -10,4 +15,4 @@ function calcRateOfReturn(dataArray) {
   };
 }
 
-module.exports = calcRateOfReturn;
+module.exports = { rateOfReturnMsg, calcRateOfReturn };
