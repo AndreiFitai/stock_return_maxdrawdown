@@ -10,6 +10,8 @@ if (config.SLACK_WEBHOOK) {
 
 function sendSlackMsg(stock, start, end, message, dataArray) {
   if (config.SLACK_WEBHOOK) {
+    start = moment(start).format("DD MMM YYYY")
+    end = moment(end).format("DD MMM YYYY")
     // if selected period is bigger than 10 days, removes stock prices and replaces them with a chart for a better view
     if (dataArray.length > 10) {
 
